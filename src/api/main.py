@@ -40,16 +40,20 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_event():
     """Ensure data is ingested and processed on startup."""
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Looking for dataset at: {PROCESSED_OUTPUT_PATH.absolute()}")
+    
     if not PROCESSED_OUTPUT_PATH.exists():
-        print(f"Processed dataset not found at {PROCESSED_OUTPUT_PATH}. Running ingestion pipeline...")
+        print(f"Dataset NOT found. Running ingestion pipeline...")
         try:
             run_phase_2_pipeline()
             print("Data ingestion completed successfully.")
         except Exception as e:
-            print(f"Error during data ingestion: {e}")
-            # In a real production app, you might want to exit or log this as a critical failure
+            print(f"CRITICAL: Error during data ingestion: {e}")
+            import traceback
+            traceback.print_exc()
     else:
-        print(f"Found existing processed dataset at {PROCESSED_OUTPUT_PATH}.")
+        print(f"Dataset found successfully.")
 
 app.include_router(router, prefix="/api/v1")
 
