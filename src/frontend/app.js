@@ -3,10 +3,10 @@
  * Interacts with the FastAPI backend to generate recommendations.
  */
 
-// In production (Vercel), we use a relative path and proxy it via vercel.json
+// Update this URL with your actual Railway backend URL
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:8000/api/v1'
-    : '/api/v1'; 
+    : 'https://web-production-20a5a.up.railway.app/api/v1'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('recommendation-form');
