@@ -3,10 +3,10 @@
  * Interacts with the FastAPI backend to generate recommendations.
  */
 
-// Update this URL with your Render backend URL after deployment
+// Update this URL with your Railway backend URL after deployment
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:8000/api/v1'
-    : 'https://zomato-ai-backend.onrender.com/api/v1'; // Default Render URL
+    : 'https://zomato-ai-recommendation-production.up.railway.app/api/v1'; // Default Railway URL
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('recommendation-form');
