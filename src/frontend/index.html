@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato AI - Personalized Recommendations</title>
+    <meta name="description" content="AI-powered restaurant recommendations using your preferences and Zomato data.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <nav class="container">
+            <div class="logo">Zomato<span>AI</span></div>
+            <div class="nav-links">
+                <a href="#search">Find Food</a>
+                <a href="#how-it-works">How it Works</a>
+            </div>
+        </nav>
+        <div class="hero-content container">
+            <h1>Discover your next <span>favorite</span> meal.</h1>
+            <p>Our AI analyzes thousands of restaurants to find the perfect match for your cravings.</p>
+            <a href="#search" class="btn btn-primary">Get Started</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="search" class="search-section">
+            <div class="search-card">
+                <h2>What are you looking for?</h2>
+                <form id="recommendation-form" class="preferences-grid">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="e.g. New Delhi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cuisine">Cuisine</label>
+                        <input type="text" id="cuisine" placeholder="e.g. North Indian, Italian">
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Max Budget (for two)</label>
+                        <input type="number" id="budget" placeholder="e.g. 1000" min="0" step="50" value="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Min Rating</label>
+                        <input type="number" id="rating" min="0" max="5" step="0.1" value="3.5">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="additional_preferences">Specific Cravings (Optional)</label>
+                        <textarea id="additional_preferences" placeholder="e.g. rooftop seating, quiet environment, best butter chicken..."></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn btn-large">
+                        <span class="btn-text">Generate Recommendations</span>
+                        <div class="loader" id="btn-loader"></div>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="results" class="results-section hidden">
+            <div class="results-header">
+                <h3>Our Top Picks for You</h3>
+                <p id="ai-summary"></p>
+            </div>
+            <div id="recommendations-container" class="recommendations-grid">
+                <!-- Recommendations will be injected here -->
+            </div>
+            <div id="fallback-notice" class="fallback-notice hidden">
+                <p>Note: We used traditional ranking as the AI reasoning layer was unavailable.</p>
+            </div>
+        </section>
+    </main>
+
+    <section id="how-it-works" class="info-section">
+        <div class="container text-center">
+            <h2>The Magic Behind the Plate</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Zomato Data</h3>
+                    <p>We process millions of data points from the Zomato dataset.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Candidate Retrieval</h3>
+                    <p>Fast filters narrow down the best candidates near you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>AI Reasoning</h3>
+                    <p>Our LLM explains exactly why each place fits your mood.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Zomato AI Project. Built with AI for Foodies.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

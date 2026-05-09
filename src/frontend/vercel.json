@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "zomato-ai-frontend",
+  "cleanUrls": true,
+  "framework": null,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

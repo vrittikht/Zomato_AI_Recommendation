@@ -1,0 +1,8 @@
+datasets
+pandas
+requests
+fastapi
+uvicorn
+pydantic
+gunicorn
+python-dotenv
