@@ -3,10 +3,10 @@
  * Interacts with the FastAPI backend to generate recommendations.
  */
 
-// Update this URL with your Railway backend URL after deployment
+// In production (Vercel), we use a relative path and proxy it via vercel.json
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:8000/api/v1'
-    : 'https://zomato-ai-recommendation-production.up.railway.app/api/v1'; // Default Railway URL
+    : '/api/v1'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('recommendation-form');
