@@ -13,7 +13,9 @@ from data_ingestion.pipeline import run_phase_2_pipeline
 
 def main() -> None:
     stats = run_phase_2_pipeline()
-    print("Phase 2 pipeline completed successfully.")
+    from data_ingestion.config import PROCESSED_OUTPUT_PATH
+    print(f"Phase 2 pipeline completed successfully.")
+    print(f"Dataset saved to: {PROCESSED_OUTPUT_PATH.absolute()}")
     print(f"Raw rows: {stats.raw_rows}")
     print(f"Processed rows: {stats.processed_rows}")
     print(f"Duplicates removed: {stats.duplicates_removed}")
