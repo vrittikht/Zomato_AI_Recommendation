@@ -1,0 +1,7 @@
+{
+  "name": "zomato-ai-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo \"window.CONFIG = { API_BASE_URL: '$BACKEND_URL' };\" > config.js"
+  }
+}

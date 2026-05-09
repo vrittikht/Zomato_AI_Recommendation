@@ -3,10 +3,12 @@
  * Interacts with the FastAPI backend to generate recommendations.
  */
 
-// Update this URL with your actual Railway backend URL
-const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:8000/api/v1'
-    : 'https://web-production-20a5a.up.railway.app/api/v1'; 
+// Priority: 1. window.CONFIG (from Vercel build), 2. Localhost fallback, 3. Hardcoded fallback
+const API_BASE_URL = (window.CONFIG && window.CONFIG.API_BASE_URL) 
+    ? window.CONFIG.API_BASE_URL 
+    : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://localhost:8000/api/v1'
+        : 'https://web-production-20a5a.up.railway.app/api/v1'); 
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('recommendation-form');
